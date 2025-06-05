@@ -1,0 +1,106 @@
+Jak zdefiniować klasę w Pythonie z metodą statyczną?
+class Math:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+print(Math.add(3, 4))  # 7
+
+
+Czym różni się metoda statyczna od metody instancyjnej?
+Metoda statyczna nie ma dostępu do self ani cls. Nie operuje na stanie instancji ani klasy.
+
+Jak wygląda przeciążenie operatora +?
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+
+Jak zaimplementować dziedziczenie?
+class Animal:
+    def speak(self):
+        return '...'
+
+class Dog(Animal):
+    def speak(self):
+        return 'Woof'
+
+
+Co robi itertools.product([1, 2], repeat=2)?
+Zwraca kartezjański iloczyn: (1,1), (1,2), (2,1), (2,2)
+
+Do czego służy itertools.chain()?
+from itertools import chain
+list(chain([1, 2], [3, 4]))  # [1, 2, 3, 4]
+
+
+
+Co wypisze list(map(lambda x: x**2, [1, 2, 3]))?
+[1, 4, 9]
+
+Co robi filter(lambda x: x % 2 == 0, [1, 2, 3, 4])?
+Zwraca elementy parzyste: [2, 4]
+
+Co zwróci list(zip('abc', [1, 2, 3]))?
+[('a', 1), ('b', 2), ('c', 3)]
+
+
+Jak działa yield?
+def gen():
+    yield 1
+    yield 2
+list(gen())  # [1, 2]
+
+
+Jak stworzyć własny iterator?
+class Counter:
+    def __init__(self, limit):
+        self.i = 0
+        self.limit = limit
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.i < self.limit:
+            self.i += 1
+            return self.i
+        else:
+            raise StopIteration
+
+
+Co robi os.path.join('folder', 'plik.txt')?
+Łączy ścieżki: 'folder/plik.txt' (na Unixie)
+
+
+Jak uzyskać aktualną datę i czas?
+from datetime import datetime
+now = datetime.now()
+
+Jak sprawdzić, czy plik istnieje?
+import os
+os.path.exists('plik.txt')
+
+Jak uruchomić funkcję w wielu procesach?
+from multiprocessing import Pool
+
+def square(x):
+    return x * x
+
+with Pool(4) as p:
+    print(p.map(square, [1, 2, 3, 4]))  # [1, 4, 9, 16]
+
+
+Co robi ThreadPoolExecutor?
+from concurrent.futures import ThreadPoolExecutor
+
+def work(x):
+    return x + 1
+
+with ThreadPoolExecutor() as executor:
+    result = list(executor.map(work, [1, 2, 3]))  # [2, 3, 4]
+
