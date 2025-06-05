@@ -1,0 +1,57 @@
+
+Programowanie obiektowe w Pythonie
+-------------------------------------
+- Używane do tworzenia struktur reprezentujących dane + funkcjonalność (klasy, metody, atrybuty).
+- Klasa: szablon obiektu.
+- Instancja: konkretny obiekt tej klasy.
+- Metody statyczne: @staticmethod, nie korzystają z self ani cls.
+- Dziedziczenie: tworzenie klasy potomnej z funkcjonalnością klasy bazowej.
+- Przeciążenie operatorów: np. __add__, __str__, __eq__, pozwala na niestandardowe działanie operatorów.
+
+Moduł itertools
+-------------------
+- Służy do zaawansowanego operowania na iteratorach.
+- Najważniejsze funkcje:
+  - itertools.product() – iloczyn kartezjański.
+  - itertools.permutations() – permutacje zbioru.
+  - itertools.combinations() – kombinacje bez powtórzeń.
+  - itertools.chain() – łączenie wielu iteratorów w jeden.
+  - itertools.cycle() – nieskończone powtarzanie sekwencji.
+- Użyteczne w problemach algorytmicznych, generowaniu danych, permutacjach.
+
+Funkcje lambda, map, filter, zip
+------------------------------------
+- lambda: funkcje anonimowe – krótkie i jednowierszowe.
+- map(func, iterable): zastosuj funkcję do każdego elementu iterowalnego.
+- filter(func, iterable): filtruje dane według funkcji warunkowej.
+- zip(a, b): paruje elementy z wielu iterowalnych obiektów.
+
+Iteratory i generatory
+--------------------------
+- Iteratory: obiekty z metodą __iter__() i __next__().
+- Generatory: funkcje z 'yield', które zachowują swój stan.
+- Zalety: oszczędność pamięci, leniwa ewaluacja.
+- Zastosowanie: strumieniowe przetwarzanie danych, nieskończone sekwencje.
+
+Moduły os i datetime
+------------------------
+- os:
+  - os.path.join(): bezpieczne łączenie ścieżek.
+  - os.listdir(): lista plików w folderze.
+  - os.remove(): usuwa plik.
+  - os.path.exists(): sprawdza, czy ścieżka istnieje.
+- datetime:
+  - datetime.now(): aktualna data i czas.
+  - timedelta: operacje na datach.
+  - datetime.strftime(): formatowanie daty.
+  - datetime.strptime(): parsowanie tekstu do daty.
+
+multiprocessing i concurrent.futures
+---------------------------------------
+- multiprocessing:
+  - Pozwala uruchamiać wiele procesów CPU-bound.
+  - Pool, Process: równoległe wykonywanie kodu.
+- concurrent.futures:
+  - Wątki (ThreadPoolExecutor) i procesy (ProcessPoolExecutor).
+  - Prosty interfejs do zarządzania zadaniami asynchronicznymi.
+  - .submit() i .map(): uruchamianie zadań.
