@@ -1,0 +1,40 @@
+Wariant 1
+Zadanie:
+Mając listę values, wypisz na wyjście ciąg typów elementów oddzielonych przecinkami ,, ale bez nawiasów < >.
+Np. dla [1, 'a', 3.5] wynik:
+int,bool,float
+
+Wariant 2
+Zadanie:
+Mając listę elements, wypisz typy elementów z prefixem "Typ:" i oddziel je średnikiem ";".
+Np. [True, None, "text"] →
+Typ:bool;Typ:NoneType;Typ:str
+
+Wariant 3
+Zadanie:
+Mając listę items, wypisz tylko nazwy typów elementów (bez <class ''>), oddzielone spacją " " i zamień wszystkie litery na wielkie.
+
+Wariant 4
+Zadanie:
+Mając listę data, wypisz typy elementów jako ciąg znaków, gdzie każdy typ jest w nawiasach kwadratowych [typ], a elementy są oddzielone ->.
+Np. [1, "hi"] → [int]->[str]
+
+# V1
+values = [1, True, 0.0, 'LOL']
+output1 = ','.join(map(lambda x: type(x).__name__, values))
+print(output1)  # int,bool,float,str
+
+# V2
+elements = [True, None, "text"]
+output2 = ';'.join(map(lambda x: f"Typ:{type(x).__name__}", elements))
+print(output2)  # Typ:bool;Typ:NoneType;Typ:str
+
+# V3
+items = [123, False, 4.56, "abc"]
+output3 = ' '.join(map(lambda x: type(x).__name__.upper(), items))
+print(output3)  # INT BOOL FLOAT STR
+
+# V4
+data = [1, "hi", 3.14]
+output4 = '->'.join(map(lambda x: f"[{type(x).__name__}]", data))
+print(output4)  # [int]->[str]->[float]
