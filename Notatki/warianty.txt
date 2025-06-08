@@ -1,0 +1,59 @@
+Wariant 1
+Zadanie:
+Napisz funkcję, która:
+
+przyjmuje listę items (różne typy)
+
+przyjmuje argument min_length typu int
+
+Funkcja zwraca listę napisów (str), które mają długość co najmniej min_length. Sprawdzaj typ elementu w funkcji.
+
+Wariant 2
+Zadanie:
+Napisz funkcję, która:
+
+przyjmuje listę numbers (różne typy)
+
+przyjmuje argument min_value typu int
+
+Funkcja zwraca listę liczb całkowitych (int), które są większe lub równe min_value. Sprawdzaj typ elementu w funkcji.
+
+Wariant 3
+Zadanie:
+Napisz funkcję, która:
+
+przyjmuje listę data (różne typy)
+
+przyjmuje argument max_words typu int
+
+Funkcja zwraca listę napisów (str), które mają mniej niż max_words wyrazów. Sprawdzaj typ elementu w funkcji.
+
+Wariant 4
+Zadanie:
+Napisz funkcję, która:
+
+przyjmuje listę sentences (różne typy)
+
+przyjmuje argument min_words typu int
+
+Funkcja zwraca listę napisów (str), które zawierają co najmniej min_words słów. Sprawdzaj typ elementu.
+
+
+
+from typing import List
+
+# Wariant 1
+def filter_strings_by_min_length(items: List, min_length: int) -> List[str]:
+    return list(filter(lambda x: isinstance(x, str) and len(x) >= min_length, items))
+
+# Wariant 2
+def filter_ints_by_min_value(numbers: List, min_value: int) -> List[int]:
+    return list(filter(lambda x: isinstance(x, int) and x >= min_value, numbers))
+
+# Wariant 3
+def filter_strings_by_max_words(data: List, max_words: int) -> List[str]:
+    return list(filter(lambda x: isinstance(x, str) and len(x.split()) < max_words, data))
+
+# Wariant 4
+def filter_sentences_by_min_words(sentences: List, min_words: int) -> List[str]:
+    return list(filter(lambda s: isinstance(s, str) and len(s.split()) >= min_words, sentences))
